@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>了解乐鱼 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            color: #1f2937;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #111827;
+        }
+
+        .hero .sub {
+            margin-top: 0.75rem;
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: #eef2ff;
+            color: #4338ca;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+        }
+
+        /* 通用卡片式区域 */
+        section {
+            margin-top: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #111827;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2rem;
+            background: #6366f1;
+            border-radius: 4px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
+            transition: box-shadow 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.6rem;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #4b5563;
+        }
+
+        .card .icon-placeholder {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #ede9fe;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #5b21b6;
+        }
+
+        /* 说明区 */
+        .intro-block {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            margin-top: 0.8rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            border-bottom: 1px solid #f3f4f6;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 550;
+            color: #111827;
+            margin-bottom: 0.3rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 4rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            text-align: center;
+        }
+
+        .footer-note a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* inline link inside sentences */
+        .inline-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .inline-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .page {
+                padding: 2rem 1.2rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .intro-block {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 区 -->
+        <header class="hero">
+            <h1>关于乐鱼</h1>
+            <p class="sub">一个聚焦信息呈现与访问体验的站点</p>
+            <span class="badge">持续维护 · 注重可信</span>
+        </header>
+
+        <!-- 优势区：特点卡片 -->
+        <section>
+            <div class="section-title">站点特点</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="icon-placeholder">◉</div>
+                    <h3>结构清晰</h3>
+                    <p>页面布局注重层级与可读性，内容组织采用模块化方式，便于快速浏览与定位。</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">◉</div>
+                    <h3>内容稳定</h3>
+                    <p>长期维护，信息调整有据可查，不随意变更核心结构与表述，保持访问一致性。</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">◉</div>
+                    <h3>访问友好</h3>
+                    <p>适配主流设备与浏览器，减少不必要的跳转与干扰，将注意力还给内容本身。</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">◉</div>
+                    <h3>引导克制</h3>
+                    <p>不采用诱导式文案或夸大宣传，所有说明均基于实际站点特性，真实可信。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 说明区：站点介绍与可信说明 -->
+        <section>
+            <div class="section-title">站点介绍 &amp; 可信说明</div>
+            <div class="intro-block">
+                <p>
+                    <a href="https://sitechina-leyu.com" class="inline-link">乐鱼</a> 
+                    是一个以内容组织与展示为主的站点，主要服务于希望获得清晰信息引导的用户。
+                    站点设计之初便以「简洁、可靠、易读」为原则，避免复杂动效与冗余装饰。
+                </p>
+                <p>
+                    在信息可信方面，乐鱼并不提供未经核实的断言或承诺，而是通过稳定的页面结构、
+                    一致的导航逻辑以及克制的表达风格，帮助用户自行判断与选择。每一处内容调整
+                    都经过基本的复核，避免出现信息矛盾或过时误导。
+                </p>
+                <p>
+                    同时，站点不收集不必要的用户数据，不植入第三方跟踪脚本，访问行为不会
+                    被用于个性化推送。这种相对克制的技术策略，也是构建信任的一部分。
+                </p>
+                <p>
+                    如果您对站点的具体内容或功能有进一步了解的需求，可以通过页面内提供的
+                    信息自行探索。乐鱼始终以真实、平稳的方式呈现自身，不夸大、不隐瞒。
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section>
+            <div class="section-title">常见疑问摘要</div>
+            <div class="intro-block" style="padding: 0.5rem 1.6rem 0.2rem;">
+                <div class="faq-item">
+                    <div class="faq-question">▸ 乐鱼主要提供什么内容？</div>
+                    <div class="faq-answer">站点侧重于信息展示与访问引导，内容围绕实用性与清晰度进行组织，不涉及交易或敏感服务。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">▸ 站点的更新频率如何？</div>
+                    <div class="faq-answer">保持定期维护与内容优化，重大调整会同步更新页面说明，避免用户产生混淆。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">▸ 如何确认站点信息的真实性？</div>
+                    <div class="faq-answer">乐鱼所有公开内容均基于可复现的页面事实，不包含虚构数据或无法验证的断言。用户可通过自行浏览进行核对。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部链接 -->
+        <footer class="footer-note">
+            <p>
+                了解更多，请直接访问 <a href="https://sitechina-leyu.com">乐鱼</a>。
+                本站内容仅供信息参考，不构成任何形式的建议或保证。
+            </p>
+            <p style="margin-top: 0.6rem;">© 2025 · 保留所有权利</p>
+        </footer>
+    </div>
+</body>
+</html>
