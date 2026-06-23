@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafc;
+            color: #1e2a3a;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 12px 32px rgba(0, 20, 40, 0.04);
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 540px) {
+            body { padding: 1.5rem 1rem; }
+            .page-wrap { padding: 2rem 1.5rem; }
+        }
+
+        /* 标题层级 */
+        .hero-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #6c86a2;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b1926;
+            margin-bottom: 1.2rem;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #3d5369;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e9eef3;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #142433;
+            margin: 2.2rem 0 0.8rem 0;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1d3348;
+            margin: 1.4rem 0 0.4rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #2a3e52;
+        }
+
+        a {
+            color: #1f6f9f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #1f6f9f;
+            color: #0d4b70;
+        }
+
+        /* 卡片式目录 */
+        .dir-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        @media (max-width: 520px) {
+            .dir-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dir-card {
+            background: #f4f7fb;
+            padding: 1.25rem 1.4rem;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .dir-card:hover {
+            background: #e9f0f8;
+        }
+
+        .dir-card .card-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #6a829b;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .dir-card .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #142433;
+            margin-bottom: 0.2rem;
+        }
+
+        .dir-card p {
+            font-size: 0.9rem;
+            color: #3f566c;
+            margin-bottom: 0;
+        }
+
+        /* 提示区 */
+        .notice-box {
+            background: #eef4fa;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 1.6rem;
+            border-left: 4px solid #6c9bc9;
+        }
+
+        .notice-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .notice-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 相关信息区 */
+        .info-group {
+            background: #fafcff;
+            border: 1px solid #e2e9f2;
+            border-radius: 20px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .info-group ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.6rem 0 0;
+        }
+
+        .info-group li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            color: #2f465c;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .info-group li::before {
+            content: "•";
+            color: #6c9bc9;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .faq-item {
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #122433;
+        }
+
+        .faq-item .a {
+            color: #3a5168;
+            margin-left: 0.2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e4ebf3;
+            font-size: 0.85rem;
+            color: #5f768d;
+            text-align: center;
+        }
+
+        .footer-note span {
+            display: inline-block;
+            margin: 0 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <div class="hero-tag">· 知识库入口 ·</div>
+        <h1>再次遇见 · 乐鱼</h1>
+        <p class="subhead">
+            无论你曾在哪里停留，这里始终为你保留一份安静、有组织的知识索引。<br>
+            收藏、标记、持续关注——让发现成为习惯。
+        </p>
+
+        <!-- 目录感卡片区 -->
+        <div class="dir-grid">
+            <div class="dir-card">
+                <div class="card-label">📁 分类</div>
+                <div class="card-title">观察 · 笔记</div>
+                <p>日常记录与轻量分析，持续补充主题卡片。</p>
+            </div>
+            <div class="dir-card">
+                <div class="card-label">📁 参考</div>
+                <div class="card-title">工具 · 索引</div>
+                <p>常用资源、术语说明与背景信息汇总。</p>
+            </div>
+            <div class="dir-card">
+                <div class="card-label">📁 对话</div>
+                <div class="card-title">讨论 · 视角</div>
+                <p>围绕不同话题的整理与延伸阅读。</p>
+            </div>
+            <div class="dir-card">
+                <div class="card-label">📁 存档</div>
+                <div class="card-title">历史 · 脉络</div>
+                <p>过去内容的归档，便于回溯与对比。</p>
+            </div>
+        </div>
+
+        <!-- 介绍 / 再次访问的角度 -->
+        <p>
+            如果你曾保存过某个页面，或只是偶然经过，这里的结构会帮助你更快找到熟悉的区域。<strong>乐鱼</strong>不是一个需要频繁刷新的站点，它更像一个安静的书架——当你需要的时候，它就在那里。
+        </p>
+        <p>
+            每次回来，目录区的内容可能会有细微调整，因为知识本身也会慢慢生长。你可以把这里当作一个长期的参考坐标，而不是一次性的信息快照。
+        </p>
+
+        <!-- 提示区 -->
+        <div class="notice-box">
+            <p><strong>💡 保持关注的小方法</strong></p>
+            <p>将当前页面添加到浏览器书签，或保存到你的阅读列表。如果你习惯使用笔记工具，也可以把链接粘贴到你的知识库里。之后再次需要时，直接检索「乐鱼」就能找到这里。</p>
+            <p style="margin-top:0.6rem;">→ 也可以记住站点：<a href="https://sitecn-leyu.com">乐鱼</a>，它的结构会随着时间逐步丰富。</p>
+        </div>
+
+        <!-- 相关信息区 + FAQ 摘要 -->
+        <h2>相关信息</h2>
+        <div class="info-group">
+            <ul>
+                <li>内容更新节奏：不定期，但每次都会保留历史目录入口</li>
+                <li>适合场景：研究、学习、写作前的资料收集，或单纯想安静浏览</li>
+                <li>无广告、无推送提醒，页面以实用信息为主</li>
+            </ul>
+        </div>
+
+        <h3>常见问题摘要</h3>
+        <div class="faq-item">
+            <span class="q">Q：为什么有些区域看起来还在建设？</span>
+            <span class="a">—— 知识库本身就是一个持续整理的过程。空白的地方代表着未来可能填充的内容，也留给使用者自己补充的空间。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：我可以分享这里的链接吗？</span>
+            <span class="a">—— 当然可以。如果对方感兴趣，直接分享 <a href="https://sitecn-leyu.com">乐鱼</a> 即可，不需要额外的介绍词。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：如何确认自己看到的是最新版本？</span>
+            <span class="a">—— 刷新页面即可。如果未来有大的结构变化，这里会保留说明。</span>
+        </div>
+
+        <div class="footer-note">
+            <span>⟡</span> 没有特别推送，没有复杂入口 <span>⟡</span><br>
+            <span style="opacity:0.7;">只是安静地存在，等待被需要的时候。</span>
+        </div>
+    </div>
+</body>
+</html>
