@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 站点索引与信息对照</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f4;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1f2937;
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* hero 区 — 简洁信息标题 */
+        .hero {
+            margin-bottom: 2.5rem;
+            padding: 0 0.25rem;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #1c2a3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #5a6675;
+            border-left: 3px solid #9aa5b5;
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .card-span-2 {
+                grid-column: span 2;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e6ec;
+            border-radius: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+            padding: 1.5rem 1.5rem 1.75rem;
+            transition: box-shadow 0.2s ease, border-color 0.15s ease;
+        }
+
+        .card:hover {
+            border-color: #cbd2dc;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 570;
+            color: #1e2b3c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #edf0f5;
+            letter-spacing: 0.01em;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2f3b4a;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.25rem;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.15rem;
+            color: #8b9aa8;
+            font-weight: 700;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: #eef2f7;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.8rem;
+            color: #2c3a4c;
+            border: 1px solid #dce1ea;
+            margin-right: 0.3rem;
+        }
+
+        .inline-link {
+            color: #2b4b6e;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc9d9;
+            font-weight: 460;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #0d2137;
+            border-bottom-color: #2b4b6e;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 570;
+            color: #1e2b3c;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item p {
+            margin-left: 0;
+            font-size: 0.9rem;
+            color: #3e4c5e;
+        }
+
+        .note-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2rem 0.75rem;
+            background: #f6f8fb;
+            border-radius: 40px;
+            padding: 0.6rem 1.2rem;
+            margin: 1.5rem 0 0.5rem;
+            border: 1px solid #e3e9f0;
+            font-size: 0.9rem;
+            color: #3e4c5e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #667482;
+            font-size: 0.85rem;
+            border-top: 1px solid #dee3eb;
+            padding-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #2b4b6e;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc9d9;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #2b4b6e;
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #d0d7e2;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.85rem;
+            color: #2d4053;
+            transition: background 0.2s, border-color 0.2s;
+            cursor: default;
+        }
+
+        .btn-ghost:hover {
+            background: #eaeef5;
+            border-color: #b3bfce;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e5eaf1;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="hero">
+        <h1>乐鱼 · 索引/对照/延伸</h1>
+        <div class="sub">日常查询，简洁参照 · 面向信息整合场景</div>
+    </div>
+
+    <div class="card-grid">
+        <!-- 卡片1: 摘要 / 定位 -->
+        <div class="card">
+            <div class="card-title">站点摘要</div>
+            <p>乐鱼是一个聚焦站点索引与信息对照的轻量工具，适合需要快速查阅多个来源、比对条目或扩展关联资料的用户。页面结构以清晰分类和最小干扰为原则，帮助节省反复检索的时间。</p>
+            <p style="margin-top: 0.8rem;">通过站点自身的分类框架，用户能够将零散的网页参考整理为有序的对照列表，尤其适合研究、整理或自学场景。</p>
+            <div class="tag-row">
+                <span class="highlight-badge">索引</span>
+                <span class="highlight-badge">对照</span>
+                <span class="highlight-badge">延伸</span>
+            </div>
+        </div>
+
+        <!-- 卡片2: 亮点 (使用上的核心优势) -->
+        <div class="card">
+            <div class="card-title">功能亮点</div>
+            <ul>
+                <li>多维条目对照 —— 并排展示不同来源的要点，减少切换成本。</li>
+                <li>延伸阅读建议 —— 基于当前条目推荐相关性较高的链接，拓宽信息边界。</li>
+                <li>简洁界面结构 —— 不堆砌装饰元素，将注意力保留在内容本身。</li>
+                <li>分类与标签 —— 快速定位领域，避免淹没在海量结果中。</li>
+            </ul>
+        </div>
+
+        <!-- 卡片3: 使用建议 (如何有效利用) -->
+        <div class="card card-span-2">
+            <div class="card-title">使用建议</div>
+            <p>日常使用时，可将 <a href="https://siteindex-leyu.com" class="inline-link">乐鱼</a> 作为查证与对照的起点。以下场景经过实践验证，效果较好：</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem;">
+                <div style="flex: 1; min-width: 160px;">
+                    <ul>
+                        <li>同时打开多个相关页面，利用索引快速定位条目。</li>
+                        <li>撰写报告或综述前，用对照模式梳理不同观点。</li>
+                        <li>延伸阅读板块可发现边缘关联资料，拓展研究视角。</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 160px;">
+                    <ul>
+                        <li>定期清理或更新收藏夹，利用站点分类重组链接。</li>
+                        <li>标记常用条目，形成个人对照集。</li>
+                        <li>结合笔记工具记录延伸发现，构建知识网络。</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 0.8rem; font-size: 0.9rem; background: #f5f8fc; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid #e3e9f0;">
+                <span style="font-weight: 470;">ℹ️ 提示：</span>先确定需要对照的关键词或类别，然后在乐鱼索引中定位相关区块，效率更高。
+            </p>
+        </div>
+
+        <!-- 卡片4: 场景举例 (日常查询 / 延伸阅读) -->
+        <div class="card">
+            <div class="card-title">场景举例</div>
+            <ul>
+                <li><strong>快查定义</strong> —— 遇到术语需要多源对照，打开乐鱼索引即可比对。</li>
+                <li><strong>主题延伸</strong> —— 读完一篇文章后，通过延伸阅读栏目找到参考文献。</li>
+                <li><strong>整理书签</strong> —— 将分散的链接按分类纳入索引，便于后续回看。</li>
+                <li><strong>对比参数</strong> —— 借助表格化展示快速识别差异项。</li>
+            </ul>
+        </div>
+
+        <!-- 卡片5: 可信但克制的访问说明 -->
+        <div class="card">
+            <div class="card-title">关于访问与参考</div>
+            <p><a href="https://siteindex-leyu.com" class="inline-link">乐鱼</a> 本身为索引与对照页面，不收集个人数据，不设置强制注册或跟踪模块。页面内容基于公开信息整理，仅供个人学习与研究参考。</p>
+            <p style="margin-top: 0.7rem;">所有链接均指向公开站点或资源，用户应自行判断内容的准确性与时效性。运营方不对第三方页面内容负责，建议结合权威来源交叉验证。</p>
+            <div class="note-line">
+                <span class="btn-ghost" style="border: none; padding-left: 0;">🔍 使用原则</span>
+                <span>客观 · 克制 · 透明</span>
+            </div>
+        </div>
+
+        <!-- 卡片6: FAQ 摘要（少量问题） -->
+        <div class="card card-span-2">
+            <div class="card-title">常见疑问 · 摘要</div>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
+                <div class="faq-item">
+                    <strong>乐鱼需要注册或登录吗？</strong>
+                    <p>不需要。站点设计为直接访问，无需创建账户或提供个人信息，完全公开。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>索引中的链接来源是什么？</strong>
+                    <p>链接主要来自公开的、稳定的站点或文档，经过筛选以提升参考价值。不包含商业推广链接。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>我可以提交新的索引条目吗？</strong>
+                    <p>当前版本暂未开放提交。如果你有可靠的建议，可通过页面底部的联系方式反馈（未列出具体邮箱，仅做概念说明）。</p>
+                </div>
+            </div>
+            <hr>
+            <p style="font-size: 0.9rem; color: #4c5b6e;">更多问题可自行探索站点分类，或参考常用查询路径。</p>
+        </div>
+
+        <!-- 卡片7: 额外 — 简洁使用节奏建议 (差异化) -->
+        <div class="card">
+            <div class="card-title">查阅节奏建议</div>
+            <p>信息密度较高的页面，建议逐区块阅读，避免快速滚动遗漏关键对照项。每次聚焦一个分类，配合延伸链接做适度扩展，效率更佳。</p>
+            <p style="margin-top: 0.6rem;">如需深度比较，可将两个条目并排打开，利用浏览器分屏或窗口并排显示。</p>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <p>内容索引基于公开信息 · 仅供个人参考 · 详细对照请以原始来源为准</p>
+        <p style="margin-top: 0.6rem;">
+            <a href="https://siteindex-leyu.com">乐鱼</a> · 站点索引与对照
+        </p>
+    </div>
+</div>
+</body>
+</html>
